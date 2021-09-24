@@ -1,5 +1,7 @@
 <?php
-
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\InicioController;
+use App\Http\Controllers\NintendoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,49 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/index', function () {
-    $vistas = view('layout/header').
-                view('layout/menu').
-                view('index').
-                view('layout/footer');
-    return $vistas;
-});
-Route::get('/nintendo/historia', function () {
-    $vistas = view('layout/header').
-                view('layout/menu').
-                view('nintendo/historia').
-                view('layout/footer');
-    return $vistas;
-});
-
-Route::get('/nintendo/juegos', function () {
-    $vistas = view('layout/header').
-                view('layout/menu').
-                view('nintendo/juegos').
-                view('layout/footer');
-    return $vistas;
-});
-Route::get('/nintendo/consolas', function () {
-    $vistas = view('layout/header').
-                view('layout/menu').
-                view('nintendo/consolas').
-                view('layout/footer');
-    return $vistas;
-});
-Route::get('/nintendo/noticias', function () {
-    $vistas = view('layout/header').
-                view('layout/menu').
-                view('nintendo/noticias').
-                view('layout/footer');
-    return $vistas;
-});
-Route::get('/nintendo/mario', function () {
-    $vistas = view('layout/header').
-                view('layout/menu').
-                view('nintendo/mario').
-                view('layout/footer');
-    return $vistas;
-});
+Route::get('/', InicioController::class);
+Route::get('/index',[IndexController::class, 'index'] );
+Route::get('/nintendo/historia', [NintendoController::class, 'nintendohistoria']);
+Route::get('/nintendo/juegos',  [NintendoController::class, 'nintendojuegos']);
+Route::get('/nintendo/consolas',  [NintendoController::class, 'nintendoconsolas']);
+Route::get('/nintendo/noticias',  [NintendoController::class, 'nintendonoticias']);
+Route::get('/nintendo/mario', [NintendoController::class, 'nintendomario']);

@@ -1,3 +1,7 @@
+@extends('layout.plantilla');
+@section('titulo', 'Historia');
+@section('contenido')
+
 <div class="container">
     <div class="row mt-3">
         <div class="col">
@@ -155,3 +159,5 @@
         </div>
     </div>
 </div>
+
+@endsection
